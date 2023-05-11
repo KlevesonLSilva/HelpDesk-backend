@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.newba.HelpDesk.Tecnico;
 import com.newba.HelpDesk.Services.exceptions.ObjectnotFoundexcption;
+import com.newba.HelpDesk.dto.TecnicoDto;
 import com.newba.HelpDesk.repositories.TecnicoRepository;
 
 @Service
@@ -23,5 +24,11 @@ public class TecnicoService {
     public List<Tecnico> findAll() {
         return repository.findAll();
     }
+
+    public Tecnico create(TecnicoDto objDto) {
+        objDto.setId(null);
+        Tecnico newObj = new Tecnico(objDto);
+        return repository.save(newObj);
     
+}
 }

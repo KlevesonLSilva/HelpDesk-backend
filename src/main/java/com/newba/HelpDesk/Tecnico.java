@@ -2,8 +2,10 @@ package com.newba.HelpDesk;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.newba.HelpDesk.dto.TecnicoDto;
 import com.newba.HelpDesk.enums.Perfil;
 
 import jakarta.persistence.Entity;
@@ -20,6 +22,16 @@ public class Tecnico extends Pessoa{
     public Tecnico() {
         super();
         addPerfil(Perfil.TECNICO);
+    }
+
+    public Tecnico(TecnicoDto obj) {
+        this.id = obj.getId();
+        this.nome = obj.getNome();
+        this.cpf = obj.getCpf();
+        this.email = obj.getEmail();
+        this.senha = obj.getSenha();
+        this.perfis = obj.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
+        this.dataCriacao = obj.getDataCriacao();
     }
 
     public Tecnico(Integer id, String nome, String cpf, String email, String senha) {
