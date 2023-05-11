@@ -10,13 +10,19 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.newba.HelpDesk.Tecnico;
 import com.newba.HelpDesk.enums.Perfil;
 
+import jakarta.validation.constraints.NotNull;
+
 public class TecnicoDto implements Serializable{
     private static final long serialVersionUID = 1L;
 
     protected Integer id;
+    @NotNull(message = "o campo nome e obrigatorio") // faz que o acampo não aceite que o campo seja null
     protected String nome;
+    @NotNull(message = "o campo cpf e obrigatorio")
     protected String cpf;
+    @NotNull(message = "o campo email e obrigatorio")
     protected String email;
+    @NotNull(message = "o campo senha e obrigatorio")
     protected String senha;
     protected Set<Integer> perfis = new HashSet<>();
     @JsonFormat(pattern = "dd/MM/yyyy") // serve para formamtar a data para o padrão que eu quiser
