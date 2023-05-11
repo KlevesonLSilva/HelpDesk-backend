@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.newba.HelpDesk.enums.Perfil;
 
@@ -28,6 +30,8 @@ public class Pessoa  implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY) // serve para informa que banco que vai gerar os id
     protected Integer id;
     protected String nome;
+
+    @CPF
     @Column(unique = true)
     protected String cpf;
     @Column(unique = true) // serve para informa que pode ter e-mail ou cpf repetido 
