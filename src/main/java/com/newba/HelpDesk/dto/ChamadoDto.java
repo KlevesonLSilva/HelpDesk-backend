@@ -9,6 +9,7 @@ import com.newba.HelpDesk.Chamado;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
 
 
 public class ChamadoDto implements Serializable {
@@ -21,11 +22,17 @@ public class ChamadoDto implements Serializable {
     private LocalDate dataAbertura = LocalDate.now();
     @JsonFormat(pattern = "dd/MM/yyyy") // serve para formamtar a data para o padrão que eu quiser
     private LocalDate dataFechamento = LocalDate.now();
+    @NotNull(message = "campo prioridade é obrigatorio")
     private Integer prioridade;
+    @NotNull(message = "campo status é obrigatorio")
     private Integer status;
+    @NotNull(message = "campo titulo é obrigatorio")
     private String titulo;
+    @NotNull(message = "campo observacoes é obrigatorio")
     private String observacoes;
+    @NotNull(message = "campo tecnico é obrigatorio")
     private Integer tecnico;
+    @NotNull(message = "campo cliente é obrigatorio")
     private Integer cliente;
     private String nomeTecnico;
     private String nomeCliente;
