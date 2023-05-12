@@ -36,6 +36,9 @@ public class Chamado implements Serializable{
     @ManyToOne // muitas informações para 1
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+    public Integer getprioridade;
+    public Integer getstatus;
+    public Integer gettecnico;
     
     public Chamado (){
         super();
