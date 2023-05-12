@@ -1,5 +1,6 @@
 package com.newba.HelpDesk.Services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.ObjectNotFoundException;
@@ -18,5 +19,9 @@ public class ChamadoService {
     public Chamado findById(Integer id){
         Optional<Chamado> obj= repository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! ID:" + id, obj));
+    }
+
+    public List<Chamado> findAll() {
+        return repository.findAll();
     }
 }
