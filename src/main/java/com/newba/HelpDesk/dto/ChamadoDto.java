@@ -3,13 +3,15 @@ package com.newba.HelpDesk.dto;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.newba.HelpDesk.Chamado;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
+
 
 
 public class ChamadoDto implements Serializable {

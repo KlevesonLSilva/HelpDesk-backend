@@ -3,6 +3,7 @@ package com.newba.HelpDesk.Services;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.newba.HelpDesk.Chamado;
@@ -24,12 +25,14 @@ public class DBService {
 	private ClienteRepository clienteRepository;
 	@Autowired
 	private ChamadoRepository chamadoRepository;
+	@Autowired
+	private BCryptPasswordEncoder encoder;
     
     public void instanciaDB(){
-        Tecnico tec1 = new Tecnico(null, "Newba", "04340538132", "kleveson_x3@hotmail.com", "tetas");
+        Tecnico tec1 = new Tecnico(null, "Newba", "04340538132", "kleveson_x3@hotmail.com", encoder.encode("123"));
 		tec1.addPerfil(Perfil.ADMIN);
 
-		Cliente cli1 = new Cliente(null, "Linus Torvals", "33136537742", "torval@email.com", "123");
+		Cliente cli1 = new Cliente(null, "Linus Torvals", "33136537742", "torval@email.com", encoder.encode("123"));
 
 		Chamado c1 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "CHAMADO 01", "primeiro chamado", tec1, cli1);
 

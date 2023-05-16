@@ -1,6 +1,8 @@
 package com.newba.HelpDesk.Resources.exceptions;
 
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import com.newba.HelpDesk.Services.exceptions.DataInterfrityViolationException;
 import com.newba.HelpDesk.Services.exceptions.ObjectnotFoundexcption;
 
-import jakarta.servlet.http.HttpServletRequest;
+
 
 @ControllerAdvice
 public class ResourcesExeptionHandler {

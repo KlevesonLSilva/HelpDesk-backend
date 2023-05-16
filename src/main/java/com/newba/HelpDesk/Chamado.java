@@ -2,18 +2,20 @@ package com.newba.HelpDesk;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.newba.HelpDesk.enums.Prioridade;
 import com.newba.HelpDesk.enums.Status;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+
 
 @Entity // obrigatorio para sempre que uma classe for um entidade
 public class Chamado implements Serializable{
@@ -130,6 +132,10 @@ public class Chamado implements Serializable{
         } else if (!id.equals(other.id))
             return false;
         return true;
+    }
+
+    public List<Chamado> getChamados() {
+        return null;
     }
     
 }

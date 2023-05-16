@@ -6,11 +6,13 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.newba.HelpDesk.Tecnico;
 import com.newba.HelpDesk.enums.Perfil;
 
-import jakarta.validation.constraints.NotNull;
+
 
 public class TecnicoDto implements Serializable{
     private static final long serialVersionUID = 1L;
@@ -79,9 +81,7 @@ public class TecnicoDto implements Serializable{
         return senha;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+    
 
     public Set<Perfil> getPerfis() {
         return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
@@ -97,6 +97,9 @@ public class TecnicoDto implements Serializable{
 
     public void setDataCriacao(LocalDate dataCriacao) {
         this.dataCriacao = dataCriacao;
+    }
+
+    public void setSenha(String encode) {
     }
 
     
