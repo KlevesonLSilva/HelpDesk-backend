@@ -29,7 +29,7 @@ import com.newba.HelpDesk.dto.ChamadoDto;
 @RequestMapping(value = "/chamados")
 public class ChamadoResource {
 
-    private static final String ServeletUriComponentBuilder = null;
+    
     @Autowired
     private ChamadoService service;
 
